@@ -1,7 +1,7 @@
 package com.leeda.simpletodo.task
 
-import com.leeda.simpletodo.core.entity.account.Account
-import com.leeda.simpletodo.core.entity.account.ToDo
+import com.leeda.simpletodo.core.domain.account.Account
+import com.leeda.simpletodo.core.domain.account.ToDo
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith

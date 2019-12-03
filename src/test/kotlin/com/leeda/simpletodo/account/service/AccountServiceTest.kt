@@ -1,7 +1,8 @@
 package com.leeda.simpletodo.account.service
 
-import com.leeda.simpletodo.account.domain.AccountInfoRepository
-import com.leeda.simpletodo.account.domain.AccountRepository
+import com.leeda.simpletodo.adapter.account.AccountService
+import com.leeda.simpletodo.core.usecase.AccountSavePort
+import com.leeda.simpletodo.provider.account.AccountInfoRepository
 import com.leeda.simpletodo.core.usecase.InsertNewUserUsecase
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -12,7 +13,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 @ExtendWith(SpringExtension::class)
 @DataJpaTest
 internal class AccountServiceTest(
-        @Autowired val accountRepository: AccountRepository,
+        @Autowired val accountRepository: AccountSavePort,
         @Autowired val accountInfoRepository: AccountInfoRepository
 ) {
 
@@ -23,7 +24,7 @@ internal class AccountServiceTest(
 
         println(newAccount)
 
-        val account = accountInfoRepository.findByAccount(newAccount)
-        println(account)
+        val accountInfo = accountInfoRepository.findByAccount(newAccount)
+        println(accountInfo)
     }
 }

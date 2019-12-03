@@ -1,6 +1,6 @@
 package com.leeda.simpletodo.core.usecase
 
-import com.leeda.simpletodo.core.entity.account.Account
+import com.leeda.simpletodo.core.domain.account.Account
 
 interface InsertNewUserUsecase {
 

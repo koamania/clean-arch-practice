@@ -1,6 +1,6 @@
-package com.leeda.simpletodo.account.domain
+package com.leeda.simpletodo.core.domain
 
-import com.leeda.simpletodo.core.entity.account.AccountInfo
+import com.leeda.simpletodo.core.domain.account.AccountInfo
 import org.junit.jupiter.api.Test
 
 internal class AccountTest {

@@ -1,6 +1,5 @@
-package com.leeda.simpletodo.core.entity.account
+package com.leeda.simpletodo.core.domain.account
 
-import com.leeda.simpletodo.core.entity.account.Account
 import javax.persistence.*
 
 @Entity

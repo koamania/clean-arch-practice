@@ -1,4 +1,4 @@
-package com.leeda.simpletodo.core.entity.account
+package com.leeda.simpletodo.core.domain.account
 
 import org.hibernate.annotations.CreationTimestamp
 import java.time.LocalDateTime
