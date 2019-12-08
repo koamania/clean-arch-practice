@@ -1,5 +1,6 @@
-package com.leeda.simpletodo.core.domain.account
+package com.leeda.simpletodo.core.domain.todo
 
+import com.leeda.simpletodo.core.domain.account.Account
 import javax.persistence.*
 
 @Entity
@@ -11,7 +12,9 @@ data class ToDo(
         @JoinColumn(name = "account_id")
         var account: Account,
         var title: String,
-        var description: String
+        @Column(nullable = true)
+        var description: String? = null,
+        var isComplete: Boolean = false
 ) {
 
 }

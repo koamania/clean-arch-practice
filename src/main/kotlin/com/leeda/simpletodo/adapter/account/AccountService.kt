@@ -2,19 +2,18 @@ package com.leeda.simpletodo.adapter.account
 
 import com.leeda.simpletodo.core.domain.account.Account
 import com.leeda.simpletodo.core.domain.account.AccountInfo
-import com.leeda.simpletodo.core.usecase.AccountSavePort
-import com.leeda.simpletodo.core.usecase.InsertNewUserUsecase
-import org.springframework.beans.factory.annotation.Autowired
+import com.leeda.simpletodo.core.usecase.account.AccountSavePort
+import com.leeda.simpletodo.core.usecase.account.AccountSaveUseCase
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
 class AccountService(
-        @Autowired val accountSavePort: AccountSavePort
-): InsertNewUserUsecase {
+        val accountSavePort: AccountSavePort
+) : AccountSaveUseCase {
 
     @Transactional
-    override fun insertNewUser(mail: String, password: String, name: String): Account {
+    override fun saveNewUser(mail: String, password: String, name: String): Account {
         val account = Account()
         val newAccountInfo = AccountInfo("koamania@gmail.com", "123123", "genius")
         account.addAccountInfo(newAccountInfo)

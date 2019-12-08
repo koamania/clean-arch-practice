@@ -1,4 +1,4 @@
-package com.leeda.simpletodo.core.usecase
+package com.leeda.simpletodo.core.usecase.account
 
 import com.leeda.simpletodo.core.domain.account.Account
 
