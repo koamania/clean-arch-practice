@@ -1,8 +1,8 @@
 package com.leeda.simpletodo.account.service
 
-import com.leeda.simpletodo.adapter.account.AccountService
+import com.leeda.simpletodo.adapter.account.ServiceAccount
 import com.leeda.simpletodo.core.usecase.account.AccountSavePort
-import com.leeda.simpletodo.core.usecase.account.AccountSaveUseCase
+import com.leeda.simpletodo.core.usecase.account.SaveAccountUseCase
 import com.leeda.simpletodo.provider.account.AccountInfoRepository
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -19,12 +19,12 @@ internal class AccountServiceTest(
 
     @Test
     fun 사용자_인서트_테스트() {
-        val accountSaveUseCase: AccountSaveUseCase = AccountService(accountRepository)
-        val newAccount = accountSaveUseCase.saveNewUser("koamania@gmail.com", "123123", "genius")
+        val saveAccountUseCase: SaveAccountUseCase = ServiceAccount(accountRepository)
+        val saveAccountResponse = saveAccountUseCase.execute(SaveAccountUseCase.SaveAccountRequest("koamania@gmail.com", "123123", "genius"))
 
-        println(newAccount)
+        println(saveAccountResponse)
 
-        val accountInfo = accountInfoRepository.findByAccount(newAccount)
+        val accountInfo = accountInfoRepository.findByAccount(saveAccountResponse.account)
         println(accountInfo)
     }
 }

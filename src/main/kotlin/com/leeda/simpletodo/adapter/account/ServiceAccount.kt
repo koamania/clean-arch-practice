@@ -3,21 +3,21 @@ package com.leeda.simpletodo.adapter.account
 import com.leeda.simpletodo.core.domain.account.Account
 import com.leeda.simpletodo.core.domain.account.AccountInfo
 import com.leeda.simpletodo.core.usecase.account.AccountSavePort
-import com.leeda.simpletodo.core.usecase.account.AccountSaveUseCase
+import com.leeda.simpletodo.core.usecase.account.SaveAccountUseCase
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
-class AccountService(
+class ServiceAccount(
         val accountSavePort: AccountSavePort
-) : AccountSaveUseCase {
+) : SaveAccountUseCase {
 
     @Transactional
-    override fun saveNewUser(mail: String, password: String, name: String): Account {
+    override fun execute(saveAccountURequest: SaveAccountUseCase.SaveAccountRequest): SaveAccountUseCase.SaveAccountResponse {
         val account = Account()
-        val newAccountInfo = AccountInfo("koamania@gmail.com", "123123", "genius")
+        val newAccountInfo = AccountInfo(saveAccountURequest.mail, saveAccountURequest.password, saveAccountURequest.name)
         account.addAccountInfo(newAccountInfo)
 
-        return accountSavePort.save(account)
+        return SaveAccountUseCase.SaveAccountResponse(accountSavePort.save(account))
     }
 }
